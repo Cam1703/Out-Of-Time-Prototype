@@ -5,7 +5,7 @@ public class InputManager : MonoBehaviour
 {
     // Propiedad estática que almacena la dirección del movimiento del jugador.
     // Es accesible desde cualquier otra clase sin necesidad de instanciar InputManager.
-    public static Vector2 Movement;
+    public static Vector2 Movement; 
 
     // Referencia al componente PlayerInput que gestiona las acciones de entrada.
     private PlayerInput _playerInput;
