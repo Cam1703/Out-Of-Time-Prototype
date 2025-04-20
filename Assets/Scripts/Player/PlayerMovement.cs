@@ -5,43 +5,36 @@ public class PlayerMovement : MonoBehaviour
     // Velocidad de movimiento del jugador. Puede ajustarse desde el Inspector.
     [SerializeField] private float speed = 5f;
 
-    // Almacena la dirección del movimiento del jugador.
+    // Dirección actual y última dirección de movimiento del jugador.
     private Vector2 _movement;
     private Vector2 _lastMovement;
 
-    // Referencia al componente Animator para controlar las animaciones del jugador.
-    private Animator _animator;
-
-    // Referencia al componente Transform de Aim, para controlar la dirección de ataque
+    // Referencia al Transform del objeto Aim, que indica hacia dónde apunta el jugador.
     [SerializeField] private Transform _aim;
 
-    // Referencia al componente Rigidbody2D para aplicar física al jugador.
+    // Referencia al componente Rigidbody2D, usado para aplicar movimiento físico al jugador.
     private Rigidbody2D _rb;
 
-    private const string _horizontal = "Horizontal"; // Nombre del parámetro horizontal en el Animator.
-    private const string _vertical = "Vertical"; // Nombre del parámetro vertical en el Animator.
-    private const string _lastHorizontal = "LastHorizontal"; // Nombre del parámetro de última dirección horizontal en el Animator.
-    private const string _lastVertical = "LastVertical"; // Nombre del parámetro de última dirección vertical en el Animator.
+    // Referencia al controlador de animaciones del jugador.
+    private PlayerAnimation _playerAnimation;
 
     // Método llamado al inicializar el objeto. Se ejecuta antes de Start.
     private void Awake()
     {
         // Obtiene el componente Rigidbody2D asociado al GameObject.
         _rb = GetComponent<Rigidbody2D>();
-
-        // Obtiene el componente Animator asociado al GameObject.
-        _animator = GetComponentInChildren<Animator>();
+        _playerAnimation = GetComponentInChildren<PlayerAnimation>();
     }
 
     // Método llamado en cada frame del juego.
     private void Update()
     {
-        MovePlayer();
-        AnimatePlayer();
-        RotateAim();
+        MovePlayer(); // Gestiona el movimiento del jugador
+        _playerAnimation.WalkAnimation(_movement); // Actualiza la animación de caminar
+        RotateAim(); // Rota el Aim en función de la dirección
     }
 
-
+    // Obtiene la entrada del jugador y aplica movimiento al Rigidbody2D.
     private void MovePlayer()
     {
         // Obtiene la dirección de movimiento desde InputManager.
@@ -57,27 +50,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
-
-    private void AnimatePlayer()
-    {
-
-        // Actualiza los parámetros del Animator para controlar las animaciones del jugador.
-        // Se asignan los valores de movimiento horizontal y vertical al Animator.
-        _animator.SetFloat(_horizontal, _movement.x);
-        _animator.SetFloat(_vertical, _movement.y);
-
-        // Si el jugador se está moviendo, actualiza la última dirección de movimiento.
-        if (_movement != Vector2.zero)
-        {
-            _animator.SetFloat(_lastHorizontal, _movement.x);
-            _animator.SetFloat(_lastVertical, _movement.y);
-        }
-    }
-
+    // Rota el objeto Aim para que apunte en la dirección del último movimiento del jugador.
     private void RotateAim()
     {
-        // Calcula la dirección para rotar el gameobject Aim, de modo que mire hacia donde mira el jugador
         Vector3 direction = Vector3.left * _lastMovement.x + Vector3.down * _lastMovement.y;
 
         _aim.rotation = Quaternion.LookRotation(Vector3.forward,direction);
