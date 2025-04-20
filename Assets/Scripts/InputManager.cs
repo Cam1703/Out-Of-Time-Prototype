@@ -36,7 +36,7 @@ public class InputManager : MonoBehaviour
 
     }
 
-    public static bool IsAttackPressed()
+    public static bool IsMaleeAttackPressed()
     {
         return _attackMaleeAction.WasPressedThisFrame();
     }

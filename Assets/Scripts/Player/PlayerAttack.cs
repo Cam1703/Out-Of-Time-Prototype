@@ -13,13 +13,13 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         CheckMaleeTimer();
-        if (InputManager.IsAttackPressed())
+        if (InputManager.IsMaleeAttackPressed())
         {
-            OnAttack();
+            OnMaleeAttack();
         }
     }
 
-    private void OnAttack()
+    private void OnMaleeAttack()
     {
         if (_isAttacking) return;
 
