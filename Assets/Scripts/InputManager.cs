@@ -12,7 +12,7 @@ public class InputManager : MonoBehaviour
 
     // Acción de entrada específica para el movimiento del jugador.
     private InputAction _moveAction;
-    private InputAction _attackMaleeAction;
+    private static InputAction _attackMaleeAction;
 
     // Método llamado al inicializar el objeto. Se ejecuta antes de Start.
     private void Awake()
@@ -34,5 +34,10 @@ public class InputManager : MonoBehaviour
         // Asigna este valor a la propiedad estática Movement, que puede ser utilizada por otras clases.
         Movement = _moveAction.ReadValue<Vector2>();
 
+    }
+
+    public static bool IsAttackPressed()
+    {
+        return _attackMaleeAction.WasPressedThisFrame();
     }
 }

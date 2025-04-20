@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     // Referencia al componente Animator para controlar las animaciones del jugador.
     private Animator _animator;
 
+    // Referencia al componente Transform de Aim, para controlar la dirección de ataque
+    [SerializeField] private Transform _aim;
+
     // Referencia al componente Rigidbody2D para aplicar física al jugador.
     private Rigidbody2D _rb;
 
@@ -19,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
     private const string _vertical = "Vertical"; // Nombre del parámetro vertical en el Animator.
     private const string _lastHorizontal = "LastHorizontal"; // Nombre del parámetro de última dirección horizontal en el Animator.
     private const string _lastVertical = "LastVertical"; // Nombre del parámetro de última dirección vertical en el Animator.
-
-    [SerializeField] private Transform _aim;
 
     // Método llamado al inicializar el objeto. Se ejecuta antes de Start.
     private void Awake()
@@ -76,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void RotateAim()
     {
+        // Calcula la dirección para rotar el gameobject Aim, de modo que mire hacia donde mira el jugador
         Vector3 direction = Vector3.left * _lastMovement.x + Vector3.down * _lastMovement.y;
 
         _aim.rotation = Quaternion.LookRotation(Vector3.forward,direction);
