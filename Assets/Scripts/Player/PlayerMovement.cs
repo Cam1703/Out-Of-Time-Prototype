@@ -7,9 +7,11 @@ public class PlayerMovement : MonoBehaviour
 
     // Almacena la dirección del movimiento del jugador.
     private Vector2 _movement;
+    private Vector2 _lastMovement;
 
     // Referencia al componente Animator para controlar las animaciones del jugador.
     private Animator _animator;
+
     // Referencia al componente Rigidbody2D para aplicar física al jugador.
     private Rigidbody2D _rb;
 
@@ -17,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private const string _vertical = "Vertical"; // Nombre del parámetro vertical en el Animator.
     private const string _lastHorizontal = "LastHorizontal"; // Nombre del parámetro de última dirección horizontal en el Animator.
     private const string _lastVertical = "LastVertical"; // Nombre del parámetro de última dirección vertical en el Animator.
+
+    [SerializeField] private Transform _aim;
 
     // Método llamado al inicializar el objeto. Se ejecuta antes de Start.
     private void Awake()
@@ -31,12 +35,31 @@ public class PlayerMovement : MonoBehaviour
     // Método llamado en cada frame del juego.
     private void Update()
     {
+        MovePlayer();
+        AnimatePlayer();
+        RotateAim();
+    }
+
+
+    private void MovePlayer()
+    {
         // Obtiene la dirección de movimiento desde InputManager.
         _movement.Set(InputManager.Movement.x, InputManager.Movement.y);
 
         // Aplica la dirección y velocidad al Rigidbody2D para mover al jugador.
         // Se utiliza linearVelocity para establecer la velocidad directamente.
         _rb.linearVelocity = _movement * speed;
+
+        if(_movement != Vector2.zero)
+        {
+            _lastMovement = _movement;
+        }
+    }
+
+
+
+    private void AnimatePlayer()
+    {
 
         // Actualiza los parámetros del Animator para controlar las animaciones del jugador.
         // Se asignan los valores de movimiento horizontal y vertical al Animator.
@@ -49,5 +72,12 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetFloat(_lastHorizontal, _movement.x);
             _animator.SetFloat(_lastVertical, _movement.y);
         }
+    }
+
+    private void RotateAim()
+    {
+        Vector3 direction = Vector3.left * _lastMovement.x + Vector3.down * _lastMovement.y;
+
+        _aim.rotation = Quaternion.LookRotation(Vector3.forward,direction);
     }
 }
