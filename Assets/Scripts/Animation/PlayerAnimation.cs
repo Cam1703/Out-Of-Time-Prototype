@@ -12,18 +12,10 @@ public class PlayerAnimation : MonoBehaviour
     private const string _lastHorizontal = "LastHorizontal"; // Nombre del parámetro de última dirección horizontal en el Animator.
     private const string _lastVertical = "LastVertical"; // Nombre del parámetro de última dirección vertical en el Animator.
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // Obtiene el componente Animator asociado al GameObject.
         _animator = GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void WalkAnimation(Vector2 movement)
@@ -41,7 +33,7 @@ public class PlayerAnimation : MonoBehaviour
         }
     }
 
-    public void AttackAnimation()
+    public void MaleeAttackAnimation()
     {
         // Activa la animación de ataque en el Animator.
     }

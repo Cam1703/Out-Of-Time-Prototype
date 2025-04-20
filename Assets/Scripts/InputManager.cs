@@ -13,6 +13,7 @@ public class InputManager : MonoBehaviour
     // Acción de entrada específica para el movimiento del jugador.
     private InputAction _moveAction;
     private static InputAction _attackMaleeAction;
+    private static InputAction _attackShootAction;
 
     // Método llamado al inicializar el objeto. Se ejecuta antes de Start.
     private void Awake()
@@ -25,6 +26,8 @@ public class InputManager : MonoBehaviour
         _moveAction = _playerInput.actions["Move"];
 
         _attackMaleeAction = _playerInput.actions["AttackMalee"];
+
+        _attackShootAction = _playerInput.actions["AttackShoot"];
     }
 
     // Método llamado en cada frame del juego.
@@ -39,5 +42,10 @@ public class InputManager : MonoBehaviour
     public static bool IsMaleeAttackPressed()
     {
         return _attackMaleeAction.WasPressedThisFrame();
+    }
+
+    public static bool IsAttackShootPressed() 
+    { 
+        return _attackShootAction.WasPressedThisFrame();
     }
 }
