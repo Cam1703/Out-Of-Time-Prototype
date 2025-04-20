@@ -12,6 +12,8 @@ public class InputManager : MonoBehaviour
 
     // Acción de entrada específica para el movimiento del jugador.
     private InputAction _moveAction;
+    private static InputAction _attackMaleeAction;
+    private static InputAction _attackShootAction;
 
     // Método llamado al inicializar el objeto. Se ejecuta antes de Start.
     private void Awake()
@@ -22,6 +24,10 @@ public class InputManager : MonoBehaviour
         // Recupera la acción de entrada llamada "Move" desde el mapa de acciones configurado.
         // Esto permite vincular las entradas del jugador (como teclas o joystick) a la lógica del juego.
         _moveAction = _playerInput.actions["Move"];
+
+        _attackMaleeAction = _playerInput.actions["AttackMalee"];
+
+        _attackShootAction = _playerInput.actions["AttackShoot"];
     }
 
     // Método llamado en cada frame del juego.
@@ -30,5 +36,16 @@ public class InputManager : MonoBehaviour
         // Lee el valor actual de la acción "Move" como un Vector2 (por ejemplo, (1, 0) para moverse a la derecha).
         // Asigna este valor a la propiedad estática Movement, que puede ser utilizada por otras clases.
         Movement = _moveAction.ReadValue<Vector2>();
+
+    }
+
+    public static bool IsMaleeAttackPressed()
+    {
+        return _attackMaleeAction.WasPressedThisFrame();
+    }
+
+    public static bool IsAttackShootPressed() 
+    { 
+        return _attackShootAction.WasPressedThisFrame();
     }
 }
