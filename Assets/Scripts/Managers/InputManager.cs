@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour
     private InputAction _moveAction;
     private static InputAction _attackMaleeAction;
     private static InputAction _attackShootAction;
+    private static InputAction _healAction;
 
     // Método llamado al inicializar el objeto. Se ejecuta antes de Start.
     private void Awake()
@@ -28,6 +29,8 @@ public class InputManager : MonoBehaviour
         _attackMaleeAction = _playerInput.actions["AttackMalee"];
 
         _attackShootAction = _playerInput.actions["AttackShoot"];
+
+        _healAction = _playerInput.actions["Heal"];
     }
 
     // Método llamado en cada frame del juego.
@@ -47,5 +50,10 @@ public class InputManager : MonoBehaviour
     public static bool IsAttackShootPressed() 
     { 
         return _attackShootAction.WasPressedThisFrame();
+    }
+
+    public static bool IsHealPressed()
+    {
+        return _healAction.WasPressedThisFrame();
     }
 }
