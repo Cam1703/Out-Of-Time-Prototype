@@ -21,7 +21,7 @@ public class ZombieEnemyAnimation : MonoBehaviour
 
     public void MaleeAttackAnimation()
     {
-        // Activa la animación de ataque en el Animator.
+        _animator.SetTrigger("Attack"); 
     }
 
     private void ResetSpriteColor()
