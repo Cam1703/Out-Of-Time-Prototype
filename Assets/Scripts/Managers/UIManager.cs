@@ -1,10 +1,12 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text _healthText;
     [SerializeField] private TMP_Text _healersText;
+    [SerializeField] private TMP_Text _bulletsText;
+
     private PlayerHealth _playerHealth;
     public static UIManager Instance { get; private set; }
 
@@ -31,6 +33,8 @@ public class UIManager : MonoBehaviour
 
         _healthText.text = "Lives: " + _playerHealth.CurrentHealth.ToString();
         _healersText.text = "Healers: " + _playerHealth.HealObjectQuantity.ToString();
+        _bulletsText.text = "Bullets: 0";
+
     }
 
     public void UpdateHealthText()
@@ -41,6 +45,11 @@ public class UIManager : MonoBehaviour
     public void UpdateHealersText()
     {
         _healersText.text = "Healers: " + _playerHealth.HealObjectQuantity.ToString();
+    }
+
+    public void UpdateBulletsText(int bulletCount)
+    {
+        _bulletsText.text = "Bullets: " + bulletCount.ToString();
     }
 
 }
