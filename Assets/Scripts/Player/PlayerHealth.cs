@@ -40,7 +40,11 @@ public class PlayerHealth : MonoBehaviour
 
         _currentHealth -= damage;
         UIManager.Instance.UpdateHealthText();
-        _playerAnimation.HurtAnimation();
+
+        if (_playerAnimation != null)
+        {
+            _playerAnimation.HurtAnimation(); // Llamar a la animación de daño
+        }
 
         if (_currentHealth <= 0)
         {
