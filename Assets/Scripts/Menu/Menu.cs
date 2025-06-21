@@ -9,9 +9,5 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(1);
 
     }
-
-    public void SkipIntro()
-    {
-        // SceneManager.LoadScene(1);
-    }
+    
 }
