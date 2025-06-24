@@ -284,7 +284,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Objetos refugio_0: -5435338785646935751
+      Objetos refugio_1: -7800188921295336795
+      Objetos refugio_2: 5806256005572245541
+      Objetos refugio_3: -6677516110437004569
+      Objetos refugio_4: 8564071010609531353
+      Objetos refugio_5: -6370383642022360281
+      Objetos refugio_6: -6083949870917100680
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RefugioGrande_0: 4357557688210122899
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
