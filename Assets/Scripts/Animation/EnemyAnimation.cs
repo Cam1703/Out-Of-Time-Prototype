@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ZombieEnemyAnimation : MonoBehaviour
+public class EnemyAnimation : MonoBehaviour
 {
     private Animator _animator;
     private SpriteRenderer _sprite;
@@ -21,12 +21,22 @@ public class ZombieEnemyAnimation : MonoBehaviour
 
     public void MaleeAttackAnimation()
     {
-        _animator.SetTrigger("Attack"); 
+        _animator.Play("Attack"); 
     }
 
     private void ResetSpriteColor()
     {
         // Restaura el color original del sprite del jugador.
         _sprite.color = Color.white; // Cambia el color del sprite a blanco.
+    }
+
+    public void SetIdleAnimation()
+    {
+        _animator.Play("Idle"); // Reproduce la animación de idle.
+    }
+
+    public void SetRunAnimation()
+    {
+        _animator.Play("Run"); // Reproduce la animación de caminar.
     }
 }
