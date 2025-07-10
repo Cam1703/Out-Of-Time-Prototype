@@ -17,6 +17,13 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float _shootCooldown;
     [SerializeField] private float _shootTimer = 0.5f;
 
+    private PlayerAnimation _playerAnimation;
+
+    private void Start()
+    {
+        _playerAnimation = GetComponentInChildren<PlayerAnimation>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -41,7 +48,7 @@ public class PlayerAttack : MonoBehaviour
         _isAttacking = true;
         _malee.SetActive(true);
 
-        //TO_DO: Animación de ataque
+        _playerAnimation.MaleeAttackAnimation();
     }
 
     private void CheckMaleeTimer()
@@ -62,6 +69,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if(_shootTimer > _shootCooldown)
         {
+            _playerAnimation.ShootAnimation();
             _shootTimer = 0;
             GameObject bullet = Instantiate(_bullet, _aim.position, _aim.rotation);
             bullet.GetComponent<Rigidbody2D>().AddForce(-_aim.up * _fireForce, ForceMode2D.Impulse);
