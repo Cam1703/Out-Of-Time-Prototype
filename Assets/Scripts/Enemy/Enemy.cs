@@ -53,20 +53,20 @@ public class Enemy : MonoBehaviour
         }
         if(newState == EnemyState.Idle)
         {
-           // Debug.Log("Enemy is now idle");
+            //Debug.Log("Enemy is now idle");
             _enemyState = newState;
             _enemyAnimation.SetIdleAnimation();
         }
         if(newState == EnemyState.Chase)
         {
             _enemyState = newState;
-           // Debug.Log("Enemy is now chasing");
+            //Debug.Log("Enemy is now chasing");
             _enemyAnimation.SetRunAnimation();
         }
         if (newState == EnemyState.Attack)
         {
             _enemyState = newState;
-           // Debug.Log("Enemy is now attacking");
+            //Debug.Log("Enemy is now attacking");
             _enemyAnimation.MaleeAttackAnimation();
         }
         if (newState == EnemyState.Patrol)

@@ -749,9 +749,8 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &245427735
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8, type: 3}
+  m_PrefabInstance: {fileID: 215577951}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245427734}
   serializedVersion: 2
@@ -5829,9 +5828,8 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &1444715639
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f, type: 3}
+  m_PrefabInstance: {fileID: 1386812708}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552016632}
   serializedVersion: 2
@@ -6318,9 +6316,8 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &1535140212
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2055102311959635375, guid: 7277dd75e907b27448ec1de08238d0bb, type: 3}
+  m_PrefabInstance: {fileID: 1503126628}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535140211}
   serializedVersion: 2
