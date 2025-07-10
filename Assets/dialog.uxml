@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="canvas-container" style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4);">
+        <ui:VisualElement name="dialog-container" style="background-color: rgba(0, 0, 0, 0.7); width: 500px; height: 200px; border-radius: 15px; padding: 10px; flex-direction: column; align-items: center; justify-content: space-between;">
+            <ui:Label name="dialog-text" text="Texto" style="color: white; font-size: 18px; unity-text-align: middle-left; margin-bottom: 10px; width: 100%; word-wrap: break-word; padding: 10px;" />
+            <ui:Button name="continue-button" text="Presiona E para continuar" style="width: 219px; height: 40px; align-self: center;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

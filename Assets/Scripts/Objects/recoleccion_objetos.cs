@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PickupItem : MonoBehaviour
 {
-    public enum ItemType { Bullet, Medkit }
+    public enum ItemType { Bullet, Medkit, MachinePieces }
     public ItemType itemType;
     public int amount = 1;
 
@@ -21,6 +21,10 @@ public class PickupItem : MonoBehaviour
                     case ItemType.Medkit:
                         inventory.AddMedkits(amount);
                         break;
+                    case ItemType.MachinePieces:
+                        inventory.AddPieces(amount);
+                        break;
+
                 }
                 Destroy(gameObject); // Desaparece el ítem tras recogerlo
             }
