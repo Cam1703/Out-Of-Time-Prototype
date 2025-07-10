@@ -69,7 +69,7 @@ public class Bonfire : MonoBehaviour
 
     private void OnCollisionStay2D(UnityEngine.Collision2D collision)
     {
-        // Esto asegura que se mantenga la interacción mientras el jugador esté tocando la fogata
+        // Esto      asegura que se mantenga la interacción mientras el jugador esté tocando la fogata
         if (isTouchingBonfire && collision.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
