@@ -208,5 +208,5 @@ public class PlayerHealth : MonoBehaviour
         /*
         // Cargar los datos del jugador despu�s de que la escena se haya reiniciado
         Invoke("LoadPlayerData", 0.8f); // Esperamos un breve momento para que la escena termine de reiniciarse antes de cargar los datos*/
-    } 
+    }
 }
