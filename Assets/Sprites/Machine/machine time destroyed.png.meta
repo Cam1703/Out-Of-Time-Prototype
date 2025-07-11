@@ -434,7 +434,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      machine time destroyed_0: -8744501513693153538
+      machine time destroyed_1: 2317420623389324393
+      machine time destroyed_10: -7950414990842671035
+      machine time destroyed_11: 2592283064643194593
+      machine time destroyed_12: 4036734119413444834
+      machine time destroyed_2: 9062353774951727206
+      machine time destroyed_3: 4731151683629782660
+      machine time destroyed_4: -4873078476793334545
+      machine time destroyed_5: 1199793004338213922
+      machine time destroyed_6: -8342009755948517996
+      machine time destroyed_7: -2372406127190851814
+      machine time destroyed_8: -7507884310150340608
+      machine time destroyed_9: -6588756095961762662
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
