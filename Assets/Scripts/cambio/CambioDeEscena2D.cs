@@ -9,6 +9,7 @@ public class CambioDeEscena2D : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            DontDestroyOnLoad(other.gameObject);
             SceneManager.LoadScene(3);
         }
     }
