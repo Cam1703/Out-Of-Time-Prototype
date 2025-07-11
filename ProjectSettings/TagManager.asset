@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - Bonfire
+  - part_one
+  - part_two
+  - part_three
+  - part_four
   layers:
   - Default
   - TransparentFX

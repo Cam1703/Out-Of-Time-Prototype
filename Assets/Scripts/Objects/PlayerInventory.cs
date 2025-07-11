@@ -4,6 +4,7 @@ public class PlayerInventory : MonoBehaviour
 {
     public int bullets = 0;
     public int healers = 0;
+    public int pieces = 0;
     private PlayerHealth _playerHealth;
 
     void Start()
@@ -22,6 +23,14 @@ public class PlayerInventory : MonoBehaviour
     public void AddMedkits(int amount)
     {
         _playerHealth.HealObjectQuantity += amount;
-        UIManager.Instance.UpdateHealersText();
+        UIManager.Instance.UpdateHealersTextWithValue(_playerHealth.HealObjectQuantity);
     }
+
+    public void AddPieces(int amount)
+    {
+        _playerHealth.MachinePieces += amount;
+        UIManager.Instance.UpdatePiecesTextWithValue(_playerHealth.MachinePieces);
+    }
+
+
 }
